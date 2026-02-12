@@ -905,6 +905,9 @@ program test
           A(i,j) = A(i,j) + B(k,l,m)
 200 Continue
 100 End Do
+
+    do 300 i = 1,10
+300 A(i) = i
 end program test
 
 --------------------------------------------------------------------------------
@@ -915,14 +918,14 @@ end program test
       (name))
     (do_loop
       (do_statement
-        (do_label)
+        (statement_label_reference)
         (loop_control_expression
           (identifier)
           (number_literal)
           (number_literal)))
       (do_loop
         (do_statement
-          (do_label)
+          (statement_label_reference)
           (loop_control_expression
             (identifier)
             (number_literal)
@@ -939,10 +942,11 @@ end program test
         (end_do_label_loop_statement
           (do_label_virtual)))
       (end_do_label_loop_statement
-        (do_label_continue)))
+        (statement_label)
+        (keyword_statement)))
     (do_loop
       (do_statement
-        (do_label)
+        (statement_label_reference)
         (loop_control_expression
           (identifier)
           (number_literal)
@@ -954,38 +958,38 @@ end program test
             (identifier)))
         (identifier))
       (end_do_label_loop_statement
-        (do_label_continue)))
+        (statement_label)))
     (do_loop
       (do_statement
-        (do_label)
+        (statement_label_reference)
         (loop_control_expression
           (identifier)
           (number_literal)
           (number_literal)))
       (do_loop
         (do_statement
-          (do_label)
+          (statement_label_reference)
           (loop_control_expression
             (identifier)
             (number_literal)
             (number_literal)))
         (do_loop
           (do_statement
-            (do_label)
+            (statement_label_reference)
             (loop_control_expression
               (identifier)
               (number_literal)
               (number_literal)))
           (do_loop
             (do_statement
-              (do_label)
+              (statement_label_reference)
               (loop_control_expression
                 (identifier)
                 (number_literal)
                 (number_literal)))
             (do_loop
               (do_statement
-                (do_label)
+                (statement_label_reference)
                 (loop_control_expression
                   (identifier)
                   (number_literal)
@@ -1013,11 +1017,27 @@ end program test
             (end_do_label_loop_statement
               (do_label_virtual)))
           (end_do_label_loop_statement
-            (do_label_continue)))
+            (statement_label)
+            (keyword_statement)))
         (end_do_label_loop_statement
           (do_label_virtual)))
       (end_do_label_loop_statement
-        (do_label_continue)))
+        (statement_label)))
+    (do_loop
+      (do_statement
+        (statement_label_reference)
+        (loop_control_expression
+          (identifier)
+          (number_literal)
+          (number_literal)))
+      (end_do_label_loop_statement
+        (statement_label)
+        (assignment_statement
+          (call_expression
+            (identifier)
+            (argument_list
+              (identifier)))
+          (identifier))))
     (end_program_statement
       (name))))
 

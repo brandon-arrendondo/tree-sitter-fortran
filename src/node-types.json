@@ -2268,7 +2268,7 @@
         "required": false,
         "types": [
           {
-            "type": "do_label",
+            "type": "statement_label_reference",
             "named": true
           }
         ]
@@ -2535,15 +2535,25 @@
         "required": true,
         "types": [
           {
-            "type": "do_label_continue",
+            "type": "do_label_virtual",
             "named": true
           },
           {
-            "type": "do_label_virtual",
+            "type": "statement_label",
             "named": true
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "_statements",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -7404,14 +7414,6 @@
   {
     "type": "do",
     "named": false
-  },
-  {
-    "type": "do_label",
-    "named": true
-  },
-  {
-    "type": "do_label_continue",
-    "named": true
   },
   {
     "type": "do_label_virtual",

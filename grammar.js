@@ -61,9 +61,9 @@ module.exports = grammar({
     $._external_end_of_statement,
     $._preproc_unary_operator,
     $.hollerith_constant,
-    $.do_label,
+    $._do_label,
     $.do_label_virtual,
-    $.do_label_continue,
+    $._do_label_continue,
   ],
 
   extras: $ => [
@@ -1319,7 +1319,7 @@ module.exports = grammar({
     // old style labeled loop
     do_stmt_label: $ => seq(
       caseInsensitive('do'),
-      field('do_label', optional($.do_label)),
+      field('do_label', optional(alias($._do_label, $.statement_label_reference))),
       optional($._do_stmt_control)
     ),
 
@@ -1357,9 +1357,9 @@ module.exports = grammar({
     end_do_label_loop_statement: $ => choice(
       field('do_label', $.do_label_virtual),
       seq(
-        field('do_label', $.do_label_continue),
+        field('do_label', alias($._do_label_continue, $.statement_label)),
         choice(
-            caseInsensitive('continue'),
+            $._statements,
             whiteSpacedKeyword('end', 'do')
         )
       )

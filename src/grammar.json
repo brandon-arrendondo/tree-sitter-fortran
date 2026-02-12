@@ -15088,8 +15088,13 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "do_label"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_do_label"
+                },
+                "named": true,
+                "value": "statement_label_reference"
               },
               {
                 "type": "BLANK"
@@ -15219,21 +15224,21 @@
               "type": "FIELD",
               "name": "do_label",
               "content": {
-                "type": "SYMBOL",
-                "name": "do_label_continue"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_do_label_continue"
+                },
+                "named": true,
+                "value": "statement_label"
               }
             },
             {
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[cC][oO][nN][tT][iI][nN][uU][eE]"
-                  },
-                  "named": false,
-                  "value": "continue"
+                  "type": "SYMBOL",
+                  "name": "_statements"
                 },
                 {
                   "type": "CHOICE",
@@ -22768,7 +22773,7 @@
     },
     {
       "type": "SYMBOL",
-      "name": "do_label"
+      "name": "_do_label"
     },
     {
       "type": "SYMBOL",
@@ -22776,7 +22781,7 @@
     },
     {
       "type": "SYMBOL",
-      "name": "do_label_continue"
+      "name": "_do_label_continue"
     }
   ],
   "inline": [
