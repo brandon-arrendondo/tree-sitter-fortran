@@ -1417,6 +1417,12 @@ Block Data (Obsolescent)
       DATA ICASE /4/
       END
 
+      block data name2
+      end block data
+
+      Block Data name3
+      End Block Data name3
+
 --------------------------------------------------------------------------------
 
 (translation_unit
@@ -1434,4 +1440,13 @@ Block Data (Obsolescent)
         (identifier)
         (data_value
           (number_literal))))
-    (end_block_data_statement)))
+    (end_block_data_statement))
+  (block_data
+    (block_data_statement
+      (name))
+    (end_block_data_statement))
+  (block_data
+    (block_data_statement
+      (name))
+    (end_block_data_statement
+      (name))))
