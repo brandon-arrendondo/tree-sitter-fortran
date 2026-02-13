@@ -7480,6 +7480,10 @@
     "named": false
   },
   {
+    "type": "endenumeration",
+    "named": false
+  },
+  {
     "type": "endfile",
     "named": false
   },

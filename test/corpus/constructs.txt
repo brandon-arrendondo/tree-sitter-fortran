@@ -1462,3 +1462,46 @@ Block Data (Obsolescent)
       (name))
     (end_block_data_statement
       (name))))
+
+================================================================================
+Statement labels on construct end
+================================================================================
+
+program test
+contains
+    subroutine foo
+    10 end subroutine foo
+
+    integer function bar
+      bar = 20
+    20 end function bar
+
+30 end program test
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (program
+    (program_statement
+      (name))
+    (internal_procedures
+      (contains_statement)
+      (subroutine
+        (subroutine_statement
+          (name))
+        (statement_label)
+        (end_subroutine_statement
+          (name)))
+      (function
+        (function_statement
+          (intrinsic_type)
+          (name))
+        (assignment_statement
+          (identifier)
+          (number_literal))
+        (statement_label)
+        (end_function_statement
+          (name))))
+    (statement_label)
+    (end_program_statement
+      (name))))

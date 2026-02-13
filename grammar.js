@@ -300,6 +300,7 @@ module.exports = grammar({
       ),
       repeat($._statement),
       optional($.internal_procedures),
+      optional($.statement_label),
       $.end_program_statement,
       $._end_of_statement
     ),
@@ -2633,6 +2634,7 @@ function procedure($, start_statement, end_statement) {
       ),
     ),
     optional($.internal_procedures),
+    optional($.statement_label),
     end_statement,
     $._end_of_statement
   );
