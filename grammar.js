@@ -410,7 +410,7 @@ module.exports = grammar({
       $._end_of_statement
     ),
 
-    end_block_data_statement: $ => blockStructureEnding2($, 'block', 'data', $._name),
+    end_block_data_statement: $ => blockStructureEnding2($, 'block', 'data', $._name, false),
 
     assignment: $ => seq(caseInsensitive('assignment'), '(', '=', ')'),
     operator: $ => seq(caseInsensitive('operator'), '(', alias(/[^()]+/, $.operator_name), ')'),
@@ -1817,7 +1817,7 @@ module.exports = grammar({
 
     end_enum_statement: $ => blockStructureEnding1($, 'enum'),
 
-    end_enumeration_type_statement: $ => blockStructureEnding2($, 'enumeration', 'type', $._name),
+    end_enumeration_type_statement: $ => blockStructureEnding2($, 'enumeration', 'type', $._name, true),
 
     // precedence is used to override a conflict with the complex literal
     unit_identifier: $ => seq(
@@ -2470,7 +2470,7 @@ function blockStructureEnding1 ($, structType, labelRule=null) {
 // two structType keywords, example 'block' and 'data', accepted are
 // 'end', 'end block' and 'end block data', with or without white spaces,
 // with optional rule for labels/names, and with optional end-of-statement
-function blockStructureEnding2 ($, structType1, structType2, labelRule=null) {
+function blockStructureEnding2 ($, structType1, structType2, labelRule=null, require_blank=false) {
   const end          = alias(caseInsensitive('end', false), 'end');
   const strt_1       = alias(caseInsensitive(structType1, false), structType1);
   const strt_2       = alias(caseInsensitive(structType2, false), structType2);
@@ -2478,19 +2478,32 @@ function blockStructureEnding2 ($, structType1, structType2, labelRule=null) {
   const end_strt_1   = alias(caseInsensitive('end' + structType1, false), 'end' + structType1);
   const end_strt_1_2 = alias(caseInsensitive('end' + structType1 + structType2, false), 'end' + structType1 + structType2);
 
-  const obj_end_stmt = choice(
-    // when both structure keywords are present, allow the label
-    labelRule ? seq(end, strt_1, strt_2, optional(labelRule)) : seq(end, strt_1, strt_2),
-    labelRule ? seq(end_strt_1, strt_2,  optional(labelRule)) : seq(end_strt_1, strt_2),
-    labelRule ? seq(end, strt_1_2,       optional(labelRule)) : seq(end, strt_1_2),
-    labelRule ? seq(end_strt_1_2,        optional(labelRule)) : seq(end_strt_1_2),
-    // 'end' alone or with just one keyword does not accept a label,
-    // as this can grab other structure keywords
-    // in incomplete statements (which happens frequently during typing)
-    seq(end, strt_1),
-    end_strt_1,
-    end
-  );
+
+  let obj_end_stmt;
+
+  if (require_blank) {
+    // blank(s) between structure keywords are mandatory
+    obj_end_stmt = choice(
+      labelRule ? seq(end, strt_1, strt_2, optional(labelRule)) : seq(end, strt_1, strt_2),
+      seq(end, strt_1),
+      end_strt_1,
+      end
+    )
+  } else {
+    obj_end_stmt = choice(
+      // when both structure keywords are present, allow the label
+      labelRule ? seq(end, strt_1, strt_2, optional(labelRule)) : seq(end, strt_1, strt_2),
+      labelRule ? seq(end_strt_1, strt_2,  optional(labelRule)) : seq(end_strt_1, strt_2),
+      labelRule ? seq(end, strt_1_2,       optional(labelRule)) : seq(end, strt_1_2),
+      labelRule ? seq(end_strt_1_2,        optional(labelRule)) : seq(end_strt_1_2),
+      // 'end' alone or with just one keyword does not accept a label,
+      // as this can grab other structure keywords in incomplete statements
+      // (which happens frequently during typing)
+      seq(end, strt_1),
+      end_strt_1,
+      end
+    );
+  }
 
   return obj_end_stmt
 }

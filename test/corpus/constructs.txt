@@ -1385,6 +1385,10 @@ module enumeration_mod
     enumerator :: v_one, v_two, v_three
     enumerator v_four
   end enumeration type v_value
+
+  ENUMERATION TYPE :: editor
+    ENUMERATOR :: emacs, vim, ed
+  END ENUMERATION TYPE
 end module enumeration_mod
 
 --------------------------------------------------------------------------------
@@ -1405,6 +1409,14 @@ end module enumeration_mod
         (identifier))
       (end_enumeration_type_statement
         (name)))
+    (enumeration_type
+      (enumeration_type_statement
+        (type_name))
+      (enumerator_statement
+        (identifier)
+        (identifier)
+        (identifier))
+      (end_enumeration_type_statement))
     (end_module_statement
       (name))))
 
