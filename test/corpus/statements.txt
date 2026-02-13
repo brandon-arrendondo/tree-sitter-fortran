@@ -896,6 +896,24 @@ program test
   do 10 i = 1, 10
     bar(i) = i
 10 end do
+
+  do 100 i = 1,10
+    do 100 j = 1,10
+      do 200 k = 1,10
+        do 200 l = 1,10
+          do 200 m = 1,10
+          A(i,j) = A(i,j) + B(k,l,m)
+200 Continue
+100 End Do
+
+    do 300 i = 1,10
+300 A(i) = i
+
+    double_loop: do 400, i=1,10
+      inner: do 500, j=1,10
+500   enddo inner
+400 enddo double_loop
+
 end program test
 
 --------------------------------------------------------------------------------
@@ -904,43 +922,150 @@ end program test
   (program
     (program_statement
       (name))
-    (do_label_statement
-      (statement_label_reference)
-      (loop_control_expression
-        (identifier)
-        (number_literal)
-        (number_literal)))
-    (do_label_statement
-      (statement_label_reference)
-      (loop_control_expression
-        (identifier)
-        (number_literal)
-        (number_literal)))
-    (assignment_statement
-      (call_expression
-        (identifier)
-        (argument_list
+    (do_loop
+      (do_statement
+        (statement_label_reference)
+        (loop_control_expression
           (identifier)
-          (identifier)))
-      (math_expression
-        (identifier)
-        (identifier)))
-    (statement_label)
-    (keyword_statement)
-    (do_label_statement
-      (statement_label_reference)
-      (loop_control_expression
-        (identifier)
-        (number_literal)
-        (number_literal)))
-    (assignment_statement
-      (call_expression
-        (identifier)
-        (argument_list
-          (identifier)))
-      (identifier))
-    (end_do_label_statement
-      (statement_label))
+          (number_literal)
+          (number_literal)))
+      (do_loop
+        (do_statement
+          (statement_label_reference)
+          (loop_control_expression
+            (identifier)
+            (number_literal)
+            (number_literal)))
+        (assignment_statement
+          (call_expression
+            (identifier)
+            (argument_list
+              (identifier)
+              (identifier)))
+          (math_expression
+            (identifier)
+            (identifier)))
+        (end_do_label_loop_statement
+          (do_label_virtual)))
+      (end_do_label_loop_statement
+        (statement_label)
+        (keyword_statement)))
+    (do_loop
+      (do_statement
+        (statement_label_reference)
+        (loop_control_expression
+          (identifier)
+          (number_literal)
+          (number_literal)))
+      (assignment_statement
+        (call_expression
+          (identifier)
+          (argument_list
+            (identifier)))
+        (identifier))
+      (end_do_label_loop_statement
+        (statement_label)))
+    (do_loop
+      (do_statement
+        (statement_label_reference)
+        (loop_control_expression
+          (identifier)
+          (number_literal)
+          (number_literal)))
+      (do_loop
+        (do_statement
+          (statement_label_reference)
+          (loop_control_expression
+            (identifier)
+            (number_literal)
+            (number_literal)))
+        (do_loop
+          (do_statement
+            (statement_label_reference)
+            (loop_control_expression
+              (identifier)
+              (number_literal)
+              (number_literal)))
+          (do_loop
+            (do_statement
+              (statement_label_reference)
+              (loop_control_expression
+                (identifier)
+                (number_literal)
+                (number_literal)))
+            (do_loop
+              (do_statement
+                (statement_label_reference)
+                (loop_control_expression
+                  (identifier)
+                  (number_literal)
+                  (number_literal)))
+              (assignment_statement
+                (call_expression
+                  (identifier)
+                  (argument_list
+                    (identifier)
+                    (identifier)))
+                (math_expression
+                  (call_expression
+                    (identifier)
+                    (argument_list
+                      (identifier)
+                      (identifier)))
+                  (call_expression
+                    (identifier)
+                    (argument_list
+                      (identifier)
+                      (identifier)
+                      (identifier)))))
+              (end_do_label_loop_statement
+                (do_label_virtual)))
+            (end_do_label_loop_statement
+              (do_label_virtual)))
+          (end_do_label_loop_statement
+            (statement_label)
+            (keyword_statement)))
+        (end_do_label_loop_statement
+          (do_label_virtual)))
+      (end_do_label_loop_statement
+        (statement_label)))
+    (do_loop
+      (do_statement
+        (statement_label_reference)
+        (loop_control_expression
+          (identifier)
+          (number_literal)
+          (number_literal)))
+      (end_do_label_loop_statement
+        (statement_label)
+        (assignment_statement
+          (call_expression
+            (identifier)
+            (argument_list
+              (identifier)))
+          (identifier))))
+    (do_loop
+      (block_label_start_expression)
+      (do_statement
+        (statement_label_reference)
+        (loop_control_expression
+          (identifier)
+          (number_literal)
+          (number_literal)))
+      (do_loop
+        (block_label_start_expression)
+        (do_statement
+          (statement_label_reference)
+          (loop_control_expression
+            (identifier)
+            (number_literal)
+            (number_literal)))
+        (end_do_label_loop_statement
+          (statement_label)
+          (block_label)))
+      (end_do_label_loop_statement
+        (statement_label)
+        (block_label)))
     (end_program_statement
       (name))))
 
