@@ -1651,6 +1651,7 @@ module.exports = grammar({
       caseInsensitive('rank'),
       choice(
         seq('(', $.case_value_range_list, ')'),
+        seq('(', $.assumed_size, ')'),
         alias(caseInsensitive('default'), $.default)
       ),
       optional($._block_label),

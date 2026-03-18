@@ -2317,6 +2317,11 @@ subroutine assumed_rank(A)
     rank default
       error stop 'assumed_rank: only rank 0..2 is handled for now.'
   end select
+
+  check_assumed_size: select rank(A)
+    rank (*) check_assumed_size
+      write(*, *) "assumed_rank: assumed size array not supported"
+  end select check_assumed_size
 end subroutine assumed_rank
 
 --------------------------------------------------------------------------------
@@ -2366,6 +2371,20 @@ end subroutine assumed_rank
         (stop_statement
           (string_literal)))
       (end_select_statement))
+    (select_rank_statement
+      (block_label_start_expression)
+      (selector
+        (identifier))
+      (rank_statement
+        (assumed_size)
+        (block_label)
+        (write_statement
+          (unit_identifier)
+          (format_identifier)
+          (output_item_list
+            (string_literal))))
+      (end_select_statement
+        (block_label)))
     (end_subroutine_statement
       (name))))
 

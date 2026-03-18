@@ -5659,6 +5659,10 @@
           "named": true
         },
         {
+          "type": "assumed_size",
+          "named": true
+        },
+        {
           "type": "block_label",
           "named": true
         },
