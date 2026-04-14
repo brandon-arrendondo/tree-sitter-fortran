@@ -594,115 +594,115 @@ END PROGRAM
     (program_statement
       (name))
     (assignment_statement
-      (identifier)
-      (relational_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (relational_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (relational_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (relational_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (relational_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (relational_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (relational_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (relational_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (relational_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (relational_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (relational_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (relational_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (relational_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (relational_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (relational_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (relational_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (relational_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (relational_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (relational_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (relational_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (relational_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (relational_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (relational_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (relational_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (logical_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (logical_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (logical_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (logical_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (logical_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (logical_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (logical_expression
-        (identifier)
-        (identifier)))
+      left: (identifier)
+      right: (logical_expression
+        left: (identifier)
+        right: (identifier)))
     (assignment_statement
-      (identifier)
-      (logical_expression
-        (identifier)))
+      left: (identifier)
+      right: (logical_expression
+        argument: (identifier)))
     (assignment_statement
-      (identifier)
-      (parenthesized_expression
+      left: (identifier)
+      right: (parenthesized_expression
         (logical_expression
-          (relational_expression
-            (identifier)
-            (identifier)))))
+          argument: (relational_expression
+            left: (identifier)
+            right: (identifier)))))
     (assignment_statement
-      (identifier)
-      (logical_expression
-        (parenthesized_expression
+      left: (identifier)
+      right: (logical_expression
+        left: (parenthesized_expression
           (logical_expression
-            (parenthesized_expression
+            left: (parenthesized_expression
               (relational_expression
-                (identifier)
-                (identifier)))
-            (parenthesized_expression
+                left: (identifier)
+                right: (identifier)))
+            right: (parenthesized_expression
               (relational_expression
-                (identifier)
-                (identifier)))))
-        (boolean_literal)))
+                left: (identifier)
+                right: (identifier)))))
+        right: (boolean_literal)))
     (assignment_statement
-      (identifier)
-      (relational_expression
-        (number_literal)
-        (number_literal)))
+      left: (identifier)
+      right: (relational_expression
+        left: (number_literal)
+        right: (number_literal)))
     (end_program_statement)))
 
 ================================================================================

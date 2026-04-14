@@ -11488,13 +11488,8 @@
                       {
                         "type": "ALIAS",
                         "content": {
-                          "type": "ALIAS",
-                          "content": {
-                            "type": "PATTERN",
-                            "value": "[sS][eE][qQ][uU][eE][nN][cC][eE]"
-                          },
-                          "named": false,
-                          "value": "sequence"
+                          "type": "PATTERN",
+                          "value": "[sS][eE][qQ][uU][eE][nN][cC][eE]"
                         },
                         "named": true,
                         "value": "sequence_statement"
@@ -17402,13 +17397,8 @@
             {
               "type": "ALIAS",
               "content": {
-                "type": "ALIAS",
-                "content": {
-                  "type": "PATTERN",
-                  "value": "[dD][eE][fF][aA][uU][lL][tT]"
-                },
-                "named": false,
-                "value": "default"
+                "type": "PATTERN",
+                "value": "[dD][eE][fF][aA][uU][lL][tT]"
               },
               "named": true,
               "value": "default"
@@ -17580,13 +17570,8 @@
                 {
                   "type": "ALIAS",
                   "content": {
-                    "type": "ALIAS",
-                    "content": {
-                      "type": "PATTERN",
-                      "value": "[dD][eE][fF][aA][uU][lL][tT]"
-                    },
-                    "named": false,
-                    "value": "default"
+                    "type": "PATTERN",
+                    "value": "[dD][eE][fF][aA][uU][lL][tT]"
                   },
                   "named": true,
                   "value": "default"
@@ -17718,13 +17703,8 @@
               {
                 "type": "ALIAS",
                 "content": {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[dD][eE][fF][aA][uU][lL][tT]"
-                  },
-                  "named": false,
-                  "value": "default"
+                  "type": "PATTERN",
+                  "value": "[dD][eE][fF][aA][uU][lL][tT]"
                 },
                 "named": true,
                 "value": "default"
@@ -20016,7 +19996,7 @@
                     "value": "\\.[oO][rR]\\."
                   },
                   "named": false,
-                  "value": "\\.or\\."
+                  "value": ".or."
                 }
               },
               {
@@ -20054,7 +20034,7 @@
                     "value": "\\.[aA][nN][dD]\\."
                   },
                   "named": false,
-                  "value": "\\.and\\."
+                  "value": ".and."
                 }
               },
               {
@@ -20092,7 +20072,7 @@
                     "value": "\\.[eE][qQ][vV]\\."
                   },
                   "named": false,
-                  "value": "\\.eqv\\."
+                  "value": ".eqv."
                 }
               },
               {
@@ -20130,7 +20110,7 @@
                     "value": "\\.[nN][eE][qQ][vV]\\."
                   },
                   "named": false,
-                  "value": "\\.neqv\\."
+                  "value": ".neqv."
                 }
               },
               {
@@ -20151,17 +20131,25 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "ALIAS",
+                "type": "FIELD",
+                "name": "operator",
                 "content": {
-                  "type": "PATTERN",
-                  "value": "\\.[nN][oO][tT]\\."
-                },
-                "named": false,
-                "value": "\\.not\\."
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "\\.[nN][oO][tT]\\."
+                  },
+                  "named": false,
+                  "value": ".not."
+                }
               },
               {
-                "type": "SYMBOL",
-                "name": "_expression"
+                "type": "FIELD",
+                "name": "argument",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expression"
+                }
               }
             ]
           }
@@ -20228,7 +20216,7 @@
                     "value": "\\.[lL][tT]\\."
                   },
                   "named": false,
-                  "value": "\\.lt\\."
+                  "value": ".lt."
                 }
               },
               {
@@ -20299,7 +20287,7 @@
                     "value": "\\.[gG][tT]\\."
                   },
                   "named": false,
-                  "value": "\\.gt\\."
+                  "value": ".gt."
                 }
               },
               {
@@ -20370,7 +20358,7 @@
                     "value": "\\.[lL][eE]\\."
                   },
                   "named": false,
-                  "value": "\\.le\\."
+                  "value": ".le."
                 }
               },
               {
@@ -20441,7 +20429,7 @@
                     "value": "\\.[gG][eE]\\."
                   },
                   "named": false,
-                  "value": "\\.ge\\."
+                  "value": ".ge."
                 }
               },
               {
@@ -20512,7 +20500,7 @@
                     "value": "\\.[eE][qQ]\\."
                   },
                   "named": false,
-                  "value": "\\.eq\\."
+                  "value": ".eq."
                 }
               },
               {
@@ -20583,7 +20571,7 @@
                     "value": "\\.[nN][eE]\\."
                   },
                   "named": false,
-                  "value": "\\.ne\\."
+                  "value": ".ne."
                 }
               },
               {
@@ -21532,7 +21520,7 @@
                 "value": "\\.[tT][rR][uU][eE]\\."
               },
               "named": false,
-              "value": "\\.true\\."
+              "value": ".true."
             },
             {
               "type": "ALIAS",
@@ -21541,7 +21529,7 @@
                 "value": "\\.[fF][aA][lL][sS][eE]\\."
               },
               "named": false,
-              "value": "\\.false\\."
+              "value": ".false."
             }
           ]
         },
@@ -22491,7 +22479,7 @@
         "value": "\\.[nN][iI][lL]\\."
       },
       "named": false,
-      "value": "\\.nil\\."
+      "value": ".nil."
     },
     "identifier": {
       "type": "CHOICE",

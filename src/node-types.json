@@ -3888,6 +3888,16 @@
     "type": "logical_expression",
     "named": true,
     "fields": {
+      "argument": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "_expression",
+            "named": true
+          }
+        ]
+      },
       "left": {
         "multiple": false,
         "required": false,
@@ -3900,22 +3910,26 @@
       },
       "operator": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
-            "type": "\\.and\\.",
+            "type": ".and.",
             "named": false
           },
           {
-            "type": "\\.eqv\\.",
+            "type": ".eqv.",
             "named": false
           },
           {
-            "type": "\\.neqv\\.",
+            "type": ".neqv.",
             "named": false
           },
           {
-            "type": "\\.or\\.",
+            "type": ".not.",
+            "named": false
+          },
+          {
+            "type": ".or.",
             "named": false
           }
         ]
@@ -3930,16 +3944,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "_expression",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -5751,6 +5755,30 @@
         "required": true,
         "types": [
           {
+            "type": ".eq.",
+            "named": false
+          },
+          {
+            "type": ".ge.",
+            "named": false
+          },
+          {
+            "type": ".gt.",
+            "named": false
+          },
+          {
+            "type": ".le.",
+            "named": false
+          },
+          {
+            "type": ".lt.",
+            "named": false
+          },
+          {
+            "type": ".ne.",
+            "named": false
+          },
+          {
             "type": "/=",
             "named": false
           },
@@ -5772,30 +5800,6 @@
           },
           {
             "type": ">=",
-            "named": false
-          },
-          {
-            "type": "\\.eq\\.",
-            "named": false
-          },
-          {
-            "type": "\\.ge\\.",
-            "named": false
-          },
-          {
-            "type": "\\.gt\\.",
-            "named": false
-          },
-          {
-            "type": "\\.le\\.",
-            "named": false
-          },
-          {
-            "type": "\\.lt\\.",
-            "named": false
-          },
-          {
-            "type": "\\.ne\\.",
             "named": false
           }
         ]
@@ -7095,6 +7099,62 @@
     "named": false
   },
   {
+    "type": ".and.",
+    "named": false
+  },
+  {
+    "type": ".eq.",
+    "named": false
+  },
+  {
+    "type": ".eqv.",
+    "named": false
+  },
+  {
+    "type": ".false.",
+    "named": false
+  },
+  {
+    "type": ".ge.",
+    "named": false
+  },
+  {
+    "type": ".gt.",
+    "named": false
+  },
+  {
+    "type": ".le.",
+    "named": false
+  },
+  {
+    "type": ".lt.",
+    "named": false
+  },
+  {
+    "type": ".ne.",
+    "named": false
+  },
+  {
+    "type": ".neqv.",
+    "named": false
+  },
+  {
+    "type": ".nil.",
+    "named": false
+  },
+  {
+    "type": ".not.",
+    "named": false
+  },
+  {
+    "type": ".or.",
+    "named": false
+  },
+  {
+    "type": ".true.",
+    "named": false
+  },
+  {
     "type": "/",
     "named": false
   },
@@ -7176,62 +7236,6 @@
   },
   {
     "type": "[",
-    "named": false
-  },
-  {
-    "type": "\\.and\\.",
-    "named": false
-  },
-  {
-    "type": "\\.eq\\.",
-    "named": false
-  },
-  {
-    "type": "\\.eqv\\.",
-    "named": false
-  },
-  {
-    "type": "\\.false\\.",
-    "named": false
-  },
-  {
-    "type": "\\.ge\\.",
-    "named": false
-  },
-  {
-    "type": "\\.gt\\.",
-    "named": false
-  },
-  {
-    "type": "\\.le\\.",
-    "named": false
-  },
-  {
-    "type": "\\.lt\\.",
-    "named": false
-  },
-  {
-    "type": "\\.ne\\.",
-    "named": false
-  },
-  {
-    "type": "\\.neqv\\.",
-    "named": false
-  },
-  {
-    "type": "\\.nil\\.",
-    "named": false
-  },
-  {
-    "type": "\\.not\\.",
-    "named": false
-  },
-  {
-    "type": "\\.or\\.",
-    "named": false
-  },
-  {
-    "type": "\\.true\\.",
     "named": false
   },
   {
