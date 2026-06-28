@@ -1,5 +1,4 @@
 {
-  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "fortran",
   "rules": {
     "translation_unit": {
@@ -23198,6 +23197,10 @@
     },
     {
       "type": "SYMBOL",
+      "name": "fixed_form_comment"
+    },
+    {
+      "type": "SYMBOL",
       "name": "custom_directive"
     },
     {
@@ -23354,6 +23357,10 @@
     {
       "type": "SYMBOL",
       "name": "_do_label_continue"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "fixed_form_comment"
     }
   ],
   "inline": [
@@ -23366,6 +23373,5 @@
     "_statements",
     "_argument_item",
     "_procedure_binding"
-  ],
-  "reserved": {}
+  ]
 }

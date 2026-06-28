@@ -6417,7 +6417,6 @@
   {
     "type": "translation_unit",
     "named": true,
-    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -7051,8 +7050,7 @@
   },
   {
     "type": "&",
-    "named": false,
-    "extra": true
+    "named": false
   },
   {
     "type": "&&",
@@ -7352,8 +7350,7 @@
   },
   {
     "type": "comment",
-    "named": true,
-    "extra": true
+    "named": true
   },
   {
     "type": "common",
@@ -7389,8 +7386,7 @@
   },
   {
     "type": "custom_directive",
-    "named": true,
-    "extra": true
+    "named": true
   },
   {
     "type": "cycle",
@@ -7605,6 +7601,10 @@
     "named": false
   },
   {
+    "type": "fixed_form_comment",
+    "named": true
+  },
+  {
     "type": "flush",
     "named": false
   },
@@ -7766,8 +7766,7 @@
   },
   {
     "type": "multiline_preproc_comment",
-    "named": true,
-    "extra": true
+    "named": true
   },
   {
     "type": "namelist",

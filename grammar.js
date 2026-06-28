@@ -64,6 +64,7 @@ module.exports = grammar({
     $._do_label,
     $.do_label_virtual,
     $._do_label_continue,
+    $.fixed_form_comment,
   ],
 
   extras: $ => [
@@ -71,6 +72,7 @@ module.exports = grammar({
     // preprocessor statements
     /\s|\\\r?\n/,
     $.comment,
+    $.fixed_form_comment,
     $.custom_directive,
     $.multiline_preproc_comment,
     '&',

@@ -37,7 +37,8 @@
     "install": "node-gyp-build",
     "prestart": "tree-sitter build --wasm",
     "start": "tree-sitter playground",
-    "test": "tree-sitter test"
+    "test": "tree-sitter test",
+    "prebuildify": "prebuildify --napi --strip"
   },
   "dependencies": {
     "node-addon-api": "^7.1.0",
@@ -59,5 +60,11 @@
     "tree_sitter": {
       "optional": true
     }
-  }
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.fortran",
+      "injection-regex": "^fortran$"
+    }
+  ]
 }
